@@ -1240,7 +1240,7 @@ header {
 }
 
 .sec05 .bkimg__contents {
-  background-image: url(../img/new/bg-1.jpeg);
+  background-image: url({{ 'bg-1.jpeg' | asset_img_url: '3000x' }});
   background-attachment: fixed;
   background-size: 100%;
   background-position: center;
@@ -1847,6 +1847,10 @@ header {
   .product .sec03 .product__post__contents img {
     width: 90%;
   }
+}
+
+.slideItemImage .slick-track {
+  width: 100%!important;
 }
 
 .collection {
