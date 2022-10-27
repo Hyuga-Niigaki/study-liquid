@@ -29,7 +29,8 @@
           <div class="product__detail__main">
             <p class="maison">{{ product.vendor }}</p>
             <h2>{{ product.title }}</h2>
-            <p class="price">{{ current_variant.price | money }}</p>
+            <p class="price">{{ current_variant.price | money }}
+            </p>
           </div>
           <div class="product__detail__text">
             <p>
@@ -53,12 +54,14 @@
           </form> -->
 
 
-          <form method="post" action="/cart/add" enctype="multipart/form-data" class="product__wrap">
+          <form method="post" action="/cart/add" enctype="multipart/form-data" class="product__wrap" id="AddToCartForm">
+
 
             <label for="#">お渡し用袋</label>
             <select name="id" id="productSelect">
               {% for variant in product.variants %}
-              <option value="{{ variant.id }}">{{ variant.title }}</option>
+              <option value="{{ variant.id }}">{{ variant.title }}
+              </option>
               {% endfor%}
             </select>
 
