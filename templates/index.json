@@ -1,0 +1,34 @@
+{
+    "sections": {
+      "section-slideshow": {
+        "type": "section-slideshow"
+      },
+    "section-collection": {
+        "type": "section-collection"
+      },
+    "section-product": {
+        "type": "section-product"
+      },
+    "section-collection-list": {
+        "type": "section-collection-list"
+      },
+      "section-about": {
+        "type": "section-about"
+      },
+      "section-special": {
+        "type": "section-special"
+      },
+      "section-category": {
+        "type": "section-category"
+      }
+    },
+    "order": [
+        "section-slideshow",
+        "section-collection",
+        "section-product",
+        "section-collection-list",
+        "section-about",
+        "section-special",
+        "section-category"
+    ]
+  }

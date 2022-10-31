@@ -1,3 +1,6 @@
 {
-    "liquid.format.enable": true
+    "liquid.format.enable": true,
+    "cSpell.words": [
+        "pjso"
+    ]
 }
