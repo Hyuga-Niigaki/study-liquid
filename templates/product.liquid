@@ -29,8 +29,7 @@
           <div class="product__detail__main">
             <p class="maison">{{ product.vendor }}</p>
             <h2>{{ product.title }}</h2>
-            <p class="price">{{ current_variant.price | money }}
-            </p>
+
           </div>
           <div class="product__detail__text">
             <p>
@@ -54,16 +53,21 @@
           </form> -->
 
 
-          <form method="post" action="/cart/add" enctype="multipart/form-data" class="product__wrap" id="AddToCartForm">
+          <form method="post" action="/cart/add" enctype="multipart/form-data" class="product__wrap">
 
-
+            {% unless product.has_only_default_variant %}
             <label for="#">お渡し用袋</label>
             <select name="id" id="productSelect">
               {% for variant in product.variants %}
-              <option value="{{ variant.id }}">{{ variant.title }}
+              <option value="{{ variant.id }}">{{ variant.title }} / {{ variant.price | money }}
               </option>
               {% endfor%}
             </select>
+
+            {% else %}
+            <p class="price">{{ current_variant.price | money }}
+            </p>
+            {% endunless %}
 
 
             <div class="qtydiv counter">
@@ -75,7 +79,9 @@
               </div>
             </div>
 
+            {% if product.has_only_default_variant %}
             <input type="hidden" name="id" value={{ product.variants.first.id }}>
+            {% endif %}
 
 
             {% if current_variant.inventory_quantity > 0 %}
