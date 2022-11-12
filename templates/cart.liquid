@@ -16,7 +16,11 @@
                             <div class="line_item_name">{{ line_item.product.title }}</div>
                             <div class="option_item_name">
                                 {% for option in line_item.options_with_values %}
+                                {% if option.value != 'Default Title' %}
                                 {{ option.name }}/{{ option.value }}
+                                {% else %}
+                                <p></p>
+                                {% endif %}
                                 {% endfor %}
                             </div>
                             <div class="line_item_count">
