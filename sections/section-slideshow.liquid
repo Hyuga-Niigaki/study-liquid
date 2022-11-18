@@ -1,7 +1,14 @@
-<section class="slider">
 
+<section class="slider">
   <ul class="slider-wrap">
-    <li class="slider-item01 slider-item">
+    {% for imag in blocks.settings.image %}
+      <li class="slider-item">
+        <div class="copy_area">
+          {{ imag }}
+        </div>
+      </li>
+    {% endfor %}
+    {%- comment -%} <li class="slider-item01 slider-item">
       <div class="copy_area">
       </div>
     </li>
@@ -16,20 +23,32 @@
     <li class="slider-item04 slider-item">
       <div class="copy_area">
       </div>
-    </li>
+    </li> {%- endcomment -%}
   </ul>
 
 </section>
-
+<style>
+  .slider-item{
+    background-image: {{ image }};
+  }
+</style>
 {% schema %}
 {
-"name": "Toppage Product",
-"settings": [
-{
-"type": "image_picker",
-"id": "image",
-"label": "Image"
-}
-]
+  "name": "Slideshow",
+  "tag": "section",
+  "class": "slideshow",
+  "blocks": [
+     {
+       "name": "Slide",
+       "type": "slide",
+       "settings": [
+         {
+           "type": "image_picker",
+           "id": "image",
+           "label": "Image"
+         }
+       ]
+     }
+   ]
 }
 {% endschema %}
